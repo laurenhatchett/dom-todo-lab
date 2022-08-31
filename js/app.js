@@ -1,20 +1,14 @@
-const todoInput = document.getElementById('todo-input')
-const submitBtn = document.getElementById('submit-button')
-const todoList = document.getElementById('todo-list')
-const resetBtn = document.getElementById('reset-button')
+//cached element references
+const input = document.getElementById("info")
+const btn = document.getElementById("submit-button")
+const ul = document.getElementById("todo-list")
 
-submitBtn.addEventListener('click', function(evt) {
-  let newTodo = document.createElement('li')
-  newTodo.innerText = todoInput.value
-  todoList.appendChild(newTodo)
-  todoInput.value = ''
+btn.addEventListener('click', function(evt){
+
+  const li = document.createElement('li') //can console.log('li') to check to see if this step is working
+  li.textContent = input.value 
+  console.log(li)
+  input.value = ' '
+  document.querySelector('ul').appendChild(li)
 })
 
-resetBtn.addEventListener('click', function(evt) {
-  todoList.innerHTML = ''
-})
-
-todoList.addEventListener('click', function(evt) {
-  let parentNode = evt.target.parentNode
-  parentNode.removeChild(evt.target)
-})
